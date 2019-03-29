@@ -90,6 +90,6 @@ def get_ecobee_temperature(config):
         return response.json(), response.status_code
     except:
         logging.exception("Failure in getting response JSON")
-	if response is not None:
-        	logging.error(response.text)
+        if response is not None:
+            logging.error(response.text)
         return None, None

@@ -2214,7 +2214,7 @@ class wfpiconsole(App):
 		# Get latest verion tag from Github API
 		header = {'Accept': 'application/vnd.github.v3+json'}
 		Template = 'https://api.github.com/repos/{}/{}/releases/latest'
-		URL = Template.format('peted-davis','WeatherFlow_PiConsole')
+		URL = Template.format('andy-cooper','WeatherFlow_PiConsole')
 		Data = requests.get(URL,headers=header).json()
 		self.System['LatestVer'] = Data['tag_name']
 

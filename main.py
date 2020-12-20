@@ -1315,9 +1315,10 @@ class wfpiconsole(App):
 
 			# Download data from current day using Weatherflow API and extract
 			# wind speed and wind gust data
-			Template = ('https://swd.weatherflow.com/swd/rest/observations/?device_id={}&time_start={}&time_end={}&api_key={}')
+			Template = ('https://swd.weatherflow.com/swd/rest/observations/device/{}?time_start={}&time_end={}&api_key={}')
 			URL = Template.format(self.config['Station']['SkyID'],Midnight_UTC,Now_UTC,self.config['Keys']['WeatherFlow'])
-			Data = requests.get(URL)
+			headers={'Authorization':'Bearer ' + self.config['Keys']['WeatherFlow']}
+			Data = requests.get(URL, headers=headers)
 
 			# Calculate daily maximum wind gust. Return NaN if API call has
 			# failed

@@ -20,6 +20,8 @@
 import platform
 import os
 import logging
+
+
 if platform.system() == 'Linux' and 'arm' in platform.machine():
 	os.environ['KIVY_GL_BACKEND'] = 'gl'
 elif platform.system() == 'Windows':
@@ -256,6 +258,8 @@ class wfpiconsole(App):
 
 		if self.config['Keys']['Ecobee'] in ['y','Y']:
 			Clock.schedule_once(self.EcobeeTemp)
+
+		Window.clear
 
 	# BUILD 'WeatherFlowPiConsole' APP CLASS SETTINGS
 	# --------------------------------------------------------------------------
